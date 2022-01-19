@@ -1,4 +1,4 @@
-<?php include "../admin/functions.php"?>
+
 <form action="" method="post">
     <div class="form-group">
         <label for="cat_title">Add Category</label>

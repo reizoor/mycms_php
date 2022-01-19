@@ -10,7 +10,8 @@
 
             <!-- Blog Entries Column -->
             <div class="col-md-8">
-            <?php   
+            <?php 
+            
             $query = "SELECT * FROM posts;";
             $select_all_posts = mysqli_query($connection, $query);
             

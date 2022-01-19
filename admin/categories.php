@@ -17,6 +17,7 @@
                             <small>Author</small>
                         </h1>
                         <div class="col-xs-6">
+                            <?php insert_categories()?>
                             <?php include "includes/categories/form_add_categories.php"?>
                         
                             <?php include "includes/categories/form_update_categories.php"?>
@@ -30,7 +31,8 @@
                                     </tr>
                                     <tbody>
                                         
-                                        <?php include "includes/categories/show_all_categories.php"?>
+                                        <?php showAllCategories();?>
+                                        <?php deleteCategories();?>
                                         
                                     </tbody>
                                 </thead>
