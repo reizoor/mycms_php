@@ -18,6 +18,13 @@
                         </h1>
                         <?php 
                         
+                        if(isset($_GET['delete'])){
+                            $post_id = $_GET['delete'];
+                            $query = "DELETE FROM posts WHERE post_id = {$post_id}";
+                            $delete_post_query = mysqli_query($connection, $query);
+                            confirmQuery($delete_post_query);
+                        }
+
                         if(isset($_GET['source'])){
                             $source = $_GET['source'];
                         }else{
@@ -29,8 +36,9 @@
                                 include "includes/posts/add_post.php";
                             break;
 
-                            case '100':
-                            echo "100";
+                            case 'update_post':
+                                include "includes/posts/update_post.php";
+                                
                             break;
 
                             case '32':
@@ -46,7 +54,7 @@
                         }
                         
                         ?>
-                        <?php //include "includes/posts/view_all_posts.php"?>
+                        
                     </div>
                 </div>
             </div>

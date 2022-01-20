@@ -37,8 +37,9 @@
                     echo "<li><h3>No categorys found</h3></li>";
                 }
                 while($row = mysqli_fetch_assoc($all_categorys)){
+                    $category_id        =$row['cat_id'];
                     $category_title     = $row['cat_title'];
-                    echo "<li><a href='index.php'>{$category_title}</a></li>";
+                    echo "<li><a href='category.php?cat_id=$category_id'>{$category_title}</a></li>";
                 }
                 
 

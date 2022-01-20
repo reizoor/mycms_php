@@ -35,18 +35,27 @@
                 $post_comment_count =$row['post_comment_count'];
                 $post_status        =$row['post_status'];
                 $post_views_count   =$row['post_views_count'];
+
+                $query = "SELECT * FROM categories WHERE cat_id = $post_category_id";
+                $select_categories_id   = mysqli_query($connection, $query);
+                while($categories = mysqli_fetch_assoc($select_categories_id)){
+                    $cat_id     =$categories['cat_id'];
+                    $cat_title  =$categories['cat_title'];
+                } 
                 echo "<tr>";
                 echo "<td>$post_id</td>";
-                echo "<td>$post_category_id</td>";
+                echo "<td>$cat_title</td>";
                 echo "<td>$post_title</td>";
                 echo "<td>$post_author</td>";
                 echo "<td>$post_user</td>";
                 echo "<td>$post_date</td>";
-                echo "<td>$post_image</td>";
+                echo "<td><img class='img-thumbnail' width='100' src='$post_image'></td>";
                 echo "<td>$post_tags</td>";
                 echo "<td>$post_comment_count</td>";
                 echo "<td>$post_status</td>";
                 echo "<td>$post_views_count</td>";
+                echo "<td><a href='posts.php?source=update_post&p_id={$post_id}'>Update</a></td>";
+                echo "<td><a href='posts.php?delete={$post_id}'>Delete</a></td>";
                 echo "</tr>";
 
             }

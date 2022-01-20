@@ -12,6 +12,33 @@ if(isset($_POST['create_post'])){
     $post_content       =$_POST['post_content'];
     
     move_uploaded_file($post_image_temp, "../images/$post_image");
+    $query =   "INSERT INTO posts (
+                post_category_id,
+                post_title, 
+                post_author,
+                post_user,
+                post_date,
+                post_image, 
+                post_content, 
+                post_tags,
+                post_comment_count,
+                post_status,
+                post_views_count
+                )
+                VALUES (
+                {$post_category_id},
+                '{$post_title}', 
+                '{$post_author}',
+                '{$post_author}',
+                now(),
+                '{$post_image}', 
+                '{$post_content}', 
+                '{$post_tags}',
+                0,
+                '{$post_status}',
+                0)";
+    $add_post_query = mysqli_query($connection, $query);
+    confirmQuery($add_post_query);
 }
 
 
@@ -25,7 +52,21 @@ if(isset($_POST['create_post'])){
     </div>
     <div class="form-group">
         <label for="post_category">Post Category Id</label>
-        <input type="text" class="form-control" name="post_category_id">
+        <select class="form-control" name="post_category_id" id="post_category">
+        <?php
+        
+        $query = "SELECT * FROM categories";
+        $select_categories = mysqli_query($connection, $query);
+        confirmQuery($select_categories);
+        while($row = mysqli_fetch_assoc($select_categories)){
+            $cat_id     =$row['cat_id'];
+            $cat_title  =$row['cat_title'];
+            echo "<option value='{$cat_id}'>{$cat_title}</option>";
+        }
+        
+        ?>
+
+        </select>
     </div>
     <div class="form-group">
         <label for="post_author">Post Author</label>
