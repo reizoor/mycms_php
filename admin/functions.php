@@ -21,12 +21,11 @@
 
             $query = "INSERT INTO categories(cat_title) ";
             $query.= "VALUE('{$cat_title}')";
-
             $create_category_query = mysqli_query($connection, $query);
-
-            if(!$create_category_query){
-                die ('Query failed' . "<br>" . mysqli_error($connection));
-            }
+            confirmQuery($create_category_query);
+            // if(!$create_category_query){
+            //     die ('Query failed' . "<br>" . mysqli_error($connection));
+            // }
 
         }
     }
@@ -59,9 +58,10 @@
         
         if(isset($_GET['delete'])){
             global $connection;
-            $get_cat_id     = $_GET['delete'];
-            $get_query      = "DELETE FROM categories WHERE cat_id = {$get_cat_id}";
-            $delete_query   = mysqli_query($connection, $get_query);
+            $the_category_id     = $_GET['delete'];
+            $query      = "DELETE FROM categories WHERE cat_id = {$the_category_id}";
+            $delete_query   = mysqli_query($connection, $query);
+            confirmQuery($delete_query);
             header("Location: categories.php");
         }
     }

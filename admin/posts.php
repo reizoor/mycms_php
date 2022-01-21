@@ -19,10 +19,12 @@
                         <?php 
                         
                         if(isset($_GET['delete'])){
-                            $post_id = $_GET['delete'];
-                            $query = "DELETE FROM posts WHERE post_id = {$post_id}";
+                            $the_post_id = $_GET['delete'];
+                            $query = "DELETE FROM posts WHERE post_id = {$the_post_id}";
                             $delete_post_query = mysqli_query($connection, $query);
                             confirmQuery($delete_post_query);
+                            header("Location: posts.php");
+
                         }
 
                         if(isset($_GET['source'])){
@@ -36,8 +38,8 @@
                                 include "includes/posts/add_post.php";
                             break;
 
-                            case 'update_post':
-                                include "includes/posts/update_post.php";
+                            case 'edit_post':
+                                include "includes/posts/edit_post.php";
                                 
                             break;
 
