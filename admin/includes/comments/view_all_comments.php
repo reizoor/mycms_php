@@ -2,7 +2,6 @@
     <thead>
         <tr>
             <th>Id</th>
-            <!-- <th>Post_id</th> -->
             <th>Comment</th>
             <th>Author</th>
             <th>Email</th>
@@ -33,15 +32,8 @@
                 $comment_status    =$row['comment_status'];
                 $comment_date      =$row['comment_date'];
 
-                // $query = "SELECT * FROM categories WHERE cat_id = $post_category_id";
-                // $select_categories_id   = mysqli_query($connection, $query);
-                // while($categories = mysqli_fetch_assoc($select_categories_id)){
-                //     $cat_id     =$categories['cat_id'];
-                //     $cat_title  =$categories['cat_title'];
-                // } 
                 echo "<tr>";
                 echo "<td>$comment_id</td>";
-                // echo "<td>$comment_post_id</td>";
                 echo "<td>$comment_content</td>";
                 echo "<td>$comment_author</td>";
                 echo "<td>$comment_email r</td>";
@@ -61,14 +53,7 @@
                 echo "<td><a href='comments.php?approve=$comment_id'>Approve</a></td>";
                 echo "<td><a href='comments.php?unapprove=$comment_id'>Unapprove</a></td>";
                 echo "<td><a href='comments.php?delete=$comment_id'>Delete</td>";
-                // echo "<td><img class='img-thumbnail' width='100' src='$post_image'></td>";
-                // echo "<td>$post_tags</td>";
-                // echo "<td>$post_comment_count</td>";
-                // echo "<td>$post_status</td>";
-                // echo "<td>$post_views_count</td>";
-                // echo "<td><a href='posts.php?source=update_post&p_id={$post_id}'>Update</a></td>";
-                // echo "<td><a href='comment.php?delete={$post_id}'>Delete</a></td>";
-                // echo "</tr>";
+                
 
             }
             
