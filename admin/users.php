@@ -18,13 +18,14 @@
                         </h1>
                         <?php 
                         
+                        // Delete a user
                         if(isset($_GET['delete'])){
-                            $the_post_id = $_GET['delete'];
-                            $query = "DELETE FROM posts WHERE post_id = {$the_post_id}";
-                            $delete_post_query = mysqli_query($connection, $query);
-                            confirmQuery($delete_post_query);
-                            header("Location: posts.php");
-
+                            $the_user_id     =$_GET['delete'];
+                            $query="DELETE FROM users where user_id = '$the_user_id'";
+                            $delete_user_query   = mysqli_query($connection, $query);
+                            confirmQuery($delete_user_query);
+                            header("Location: users.php");
+                           
                         }
 
                         if(isset($_GET['source'])){
@@ -34,16 +35,16 @@
                         }
                         
                         switch($source){
-                            case 'add_post':
-                                include "includes/posts/add_post.php";
+                            case 'add_user':
+                                include "includes/users/add_user.php";
                             break;
 
-                            case 'edit_post':
-                                include "includes/posts/edit_post.php";
+                            case 'edit_user':
+                                include "includes/users/edit_user.php";
                             break;
-
+                            
                             default:
-                            include "includes/posts/view_all_posts.php";
+                                include "includes/users/view_all_users.php";
                             break;
                         }
                         

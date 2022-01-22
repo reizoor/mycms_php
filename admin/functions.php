@@ -23,14 +23,11 @@
             $query.= "VALUE('{$cat_title}')";
             $create_category_query = mysqli_query($connection, $query);
             confirmQuery($create_category_query);
-            // if(!$create_category_query){
-            //     die ('Query failed' . "<br>" . mysqli_error($connection));
-            // }
 
         }
     }
     }
-
+    // Show all categories
     function showAllCategories(){
         global $connection;
         $category_query = "SELECT * FROM categories";
@@ -53,7 +50,7 @@
             echo "</tr>";
         }
     }
-
+    // Delete a category
     function deleteCategories(){
         
         if(isset($_GET['delete'])){

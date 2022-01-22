@@ -18,6 +18,7 @@
                         </h1>
                         <?php 
                         
+                        //  Approve a comment
                         if(isset($_GET['unapprove'])){
                             $the_comment_id     =$_GET['unapprove'];
 
@@ -32,6 +33,7 @@
                             header("Location: comments.php");
                            
                         }
+                        //  Unapprove a comment
                         if(isset($_GET['approve'])){
                             $the_comment_id     =$_GET['approve'];
                             $query="
@@ -44,7 +46,8 @@
                             header("Location: comments.php");
                            
                         }
-
+                        
+                        //  Delete a comment
                         if(isset($_GET['delete'])){
                             $the_comment_id     =$_GET['delete'];
                             $query="DELETE FROM comments where comment_id = '$the_comment_id'";
@@ -59,29 +62,7 @@
                         }else{
                             $source = "";
                         }
-                        
-                        switch($source){
-                            case 'add_post':
-                                include "includes/posts/add_post.php";
-                            break;
-
-                            case 'update_post':
-                                include "includes/posts/update_post.php";
-                                
-                            break;
-
-                            case '32':
-                            echo "32";
-                            break;
-                            
-                            default:
-
-                            include "includes/comments/view_all_comments.php";
-
-                            break;
-
-                        }
-                        
+                        include "includes/comments/view_all_comments.php";
                         ?>
                         
                     </div>
