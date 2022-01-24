@@ -58,7 +58,8 @@
         <label for="post_title">Post Title</label>
         <input value="<?php echo $post_title?>" type="text" class="form-control" name="post_title">
     </div>
-    <div class="form-group">
+    <div class='row'>
+    <div class="form-group col-sm-2">
         <label for="post_category">Post Category Id</label>
         <br>
         <select class="form-control" name="post_category_id" id="post_category">
@@ -79,17 +80,34 @@
         
         <!-- <input value="" type="text" class="form-control" name="post_category_id"> -->
     </div>
+    </div>
     <div class="form-group">
         <label for="post_author">Post Author</label>
         <input value="<?php echo $post_author?>" type="text" class="form-control" name="post_author">
     </div>
-    <div class="form-group">
+    <div class='row'>
+    <div class="form-group col-sm-1">
         <label for="post_status">Post Status</label>
-        <input value="<?php echo $post_status?>" type="text"class="form-control" name="post_status">
+        <select class="form-control" name="post_status" id="">
+            <option value="<?php echo $post_status?>"><?php echo $post_status?></option>
+
+            <?php 
+            
+            if($post_status == 'draft'){
+                echo "<option value='published'>published</option>";
+            }else{
+                echo "<option value='draft'>draft</option>";
+            }
+
+            ?>
+
+        </select>
+    </div>
     </div>
     <div class="form-group">
         <label for="post_image">Post Image</label><br>
         <img name="post_image" width="100" src="../images/<?php echo $post_image?>">
+        <br><br>
         <input value="<?php echo $post_image?>" type="file" class="" name="post_image">
     </div>
     <div class="form-group">
