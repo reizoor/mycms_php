@@ -12,9 +12,10 @@
                 </button>
                 <a class="navbar-brand" href="index.php">CMS</a>
             </div>
+            
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            
+           
                 <ul class="nav navbar-nav">
                 <?php 
             
@@ -36,11 +37,33 @@
                     <li>
                         <a href="#">Contact</a>
                     </li>
-                    <li>
-                        <a href="./admin/index.php">Admin</a>
-                    </li>
+                    <?php
+                    if(isset($_SESSION['username'],$_SESSION['user_role'])){
+                        if($_SESSION['user_role'] == 'admin'){ 
+                            echo "<li><a href='./admin/index.php'>Admin</a></li>";
+                        }     
+                    }
+                    
+                    ?>
                 </ul>
+                <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i><?php echo $_SESSION['username'];?><b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="profile.php"><i class="fa fa-fw fa-user"></i>Profile</a>
+                        </li>
+                        <li>
+                            <a href="../includes/logout.php"><i class="fa fa-fw fa-power-off"></i>Log Out</a>
+                        </li>
+                    </ul>
+                </li>
+                </ul>
+                
             </div>
+            
+            
+            
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->

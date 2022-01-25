@@ -1,4 +1,6 @@
 <?php   include "admin/functions.php" ?>
+<?php ob_start(); ?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 

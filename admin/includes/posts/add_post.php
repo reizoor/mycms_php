@@ -86,7 +86,25 @@ if(isset($_POST['create_post'])){
     </div>
     <div class="form-group">
         <label for="post_content">Post content</label>
-        <textarea type="text" class="form-control" name="post_content"></textarea>
+        <textarea id="summernote" name="post_content"></textarea>
+        <script>
+           
+                $('#summernote').summernote({
+                    placeholder: 'Hello stand alone ui',
+                    tabsize: 2,
+                    height: 120,
+                    toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'underline', 'clear']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['table', ['table']],
+                    ['insert', ['link', 'picture', 'video']],
+                    ['view', ['fullscreen', 'codeview', 'help']]
+                    ]
+                });
+   
+        </script>
     </div>
     <div class="form-group">
         <input class="btn btn-primary" type="submit" name="create_post" value="Submit">
